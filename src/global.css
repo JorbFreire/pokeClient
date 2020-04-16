@@ -1,12 +1,13 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', 'Fira Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #root, .App, body {
   width: 100vw;
   height: 100vh;
+
+  font-family: 'Roboto', 'Fira Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
