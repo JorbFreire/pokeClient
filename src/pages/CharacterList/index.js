@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import './styles.css';
@@ -9,42 +10,59 @@ export default function CharacterList(){
   const [types, setTypes] = useState([]);
   const [characters, setCharacters] = useState([]);
 
-  async function getFromApi(){
-    const response = await api.get('/type/3/');
-    return response;
-  }
+  async function filterPokemonsByType(type) {
+    const response = await api.get(type);
+    const pokemons = response.data.pokemon;
 
-  async function filterByType(type) {
-    console.log(type)
+    if (pokemons.length >= 100) {
+      console.log("maior que 100");
+    } else {
+      setCharacters(pokemons);
+      console.log("not that big");
+    }
+
+    return 0;
   }
   
+  //inicialize Types
   useEffect(() => {
     async function listTypes(){
       const response = await api.get('/type/');
       setTypes(response.data.results);
       return 1;
     }
-    setCharacters([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,])
     listTypes();   
   }, []);
+
+  //inicialize Pokemons
+  useEffect(() => {
+    filterPokemonsByType('/type/2/');
+  },[]);
 
   return (
     <div className="CharacterList">
       <section className="characters">
-        {characters.map(() => (          
-          <div className="character">
-            <p>bla</p>
-          </div>
+        {characters.map(pokemon => (
+          <a key={Math.random()} href={pokemon.pokemon.url}>
+            <div className="character">
+              <p>{pokemon.pokemon.name}</p>
+            </div>
+          </a>
         ))}
       </section>
 
       <section className="types">
         <h2>TYPES</h2>
-        <button onClick={() => filterByType("showALL")}> Show ALL </button>
+        <button
+          onClick={() => filterPokemonsByType("showALL")}
+        >
+          Show ALL
+        </button>
+
         {types.map( type => (
           <button
-            onClick={() => filterByType(type.url)}
-            key={Math.random}
+            onClick={() => filterPokemonsByType(type.url)}
+            key={type.name}
           >
             {type.name}
           </button>
