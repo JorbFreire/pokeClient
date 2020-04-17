@@ -4,8 +4,6 @@ import api from '../../services/api';
 import Pokemon from './Pokemon';
 
 import './styles.css';
-import './types.css';
-import './characters.css';
 
 export default function CharacterList(){
   const [types, setTypes] = useState([]);

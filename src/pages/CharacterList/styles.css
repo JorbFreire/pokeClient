@@ -21,6 +21,41 @@
   margin: 12px 22px;
 }
 
+.CharacterList section.types {
+  width: 200px;
+  border-left: 2px solid #831010;
+  overflow: auto;
+  padding: 3px;
+}
+
+.CharacterList section.types h2 {
+  color: #831010;
+  padding: 5px;
+  text-align: center;
+}
+
+.CharacterList section.types button {
+  width: 100%;
+  height: 30px;
+
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+    
+  color: #a49c9c;
+  transition: 0.4s;
+  background: #c52941;
+}
+
+.CharacterList section.types button:hover,
+.CharacterList section.types button:focus  {
+  transition: 0.4s;
+  background: #e63931;
+}
+  /* selecetd option */
+  /* background-color: #ff5220; */
+
+
 @media (max-width: 1195px) {
   .CharacterList section.characters {
     grid-template-columns: repeat(2, 1fr);
