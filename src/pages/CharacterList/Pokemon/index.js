@@ -1,14 +1,22 @@
 import React from 'react';
 import './styles.css';
 
-export default function pokemon(){
+export default function pokemon(props){
+  function dealWithDiferetJsonResponses(pokemon){
+    if(pokemon.pokemon)
+      return pokemon.pokemon;
+    else if (pokemon.name)
+      return pokemon;
+    else
+      console.log("unexpected input");
+    return 0;
+  }
+
   return (
-    {characters.map(pokemon => (
-      <a key={Math.random()} href={dealWithDiferetJsonResponses(pokemon).url}>
-        <div className="character">
-          <p>{pokemon.name}</p>
-        </div>
-      </a>
-    ))}
+    <a key={Math.random()} href={dealWithDiferetJsonResponses(props.pokemon).url}>
+      <div className="pokemon">
+        <p>{props.pokemon.name}</p>
+      </div>
+    </a>
   );
 }

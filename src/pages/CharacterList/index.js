@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import Pokemon from './Pokemon';
 
 import './styles.css';
 import './types.css';
@@ -22,16 +23,6 @@ export default function CharacterList(){
     setCharacters(pokemons);
 
     return 1;
-  }
-
-  function dealWithDiferetJsonResponses(pokemon){
-    if(pokemon.pokemon)
-      return pokemon.pokemon;
-    else if (pokemon.name)
-      return pokemon;
-    else
-      console.log("unexpected input");
-    return 0;
   }
   
   //inicialize pokeTypes
@@ -59,11 +50,7 @@ export default function CharacterList(){
       <section className="characters">
       <button onClick={debug}>DEBUG</button>
         {characters.map(pokemon => (
-          <a key={Math.random()} href={dealWithDiferetJsonResponses(pokemon).url}>
-            <div className="character">
-              <p>{pokemon.name}</p>
-            </div>
-          </a>
+          <Pokemon pokemon={pokemon}/>
         ))}
       </section>
 
