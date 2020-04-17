@@ -2,9 +2,37 @@
   width: 100%;
   height: 220px;
   
+  border-radius: 30px;
+
+  transition: 0.5s;
+  padding: 7px;
+}
+
+.pokemon:hover {
+  transition: 0.5s;
+  padding: 0;
+}
+
+.pokemon .linkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 220px;
+  
   background: #c52941;
   border-radius: 30px;
   color: #ffffff;
 
   padding: 20px;
+}
+
+.pokemon .linkBox img {
+  width: 140px;
+}
+
+.pokemon .linkBox p {
+  text-transform: capitalize;
 }

@@ -53,7 +53,7 @@ export default function CharacterList(){
         <section className="characters">
           <button onClick={debug}>DEBUG</button>
             {characters.map(pokemon => (
-              <Pokemon pokemon={pokemon}/>
+              <Pokemon key={Math.random()} pokemon={pokemon}/>
             ))}
         </section>
       </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import silhouette from '../../../assets/pokemon.png';
 import './styles.css';
 
 export default function pokemon(props){
@@ -13,10 +15,14 @@ export default function pokemon(props){
   }
 
   return (
-    <a key={Math.random()} href={dealWithDiferetJsonResponses(props.pokemon).url}>
-      <div className="pokemon">
+    <div className="pokemon">
+      <a
+        href={dealWithDiferetJsonResponses(props.pokemon).url}
+        className="linkBox"
+      >
+        <img src={silhouette} alt="Pokemon Silhouette"/>
         <p>{dealWithDiferetJsonResponses(props.pokemon).name}</p>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }
