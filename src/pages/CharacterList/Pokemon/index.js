@@ -15,7 +15,7 @@ export default function pokemon(props){
   return (
     <a key={Math.random()} href={dealWithDiferetJsonResponses(props.pokemon).url}>
       <div className="pokemon">
-        <p>{props.pokemon.name}</p>
+        <p>{dealWithDiferetJsonResponses(props.pokemon).name}</p>
       </div>
     </a>
   );
