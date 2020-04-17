@@ -25,9 +25,8 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={CharacterList}/>
-        <Route path='/character/details' component={CharacterDetails} />
         <Route path='/login' component={Login} />
-        <PrivateRoute path="/private" component={() => <h1>private route</h1>} />
+        <PrivateRoute path="/character/details" component={CharacterDetails} />
       </Switch>
     </BrowserRouter>
   );

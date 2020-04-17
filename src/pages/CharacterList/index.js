@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import Pokemon from './Pokemon';
@@ -40,32 +39,19 @@ export default function CharacterList(){
     getAllPokemons();
   }, [types]);
 
-  async function debug(){
-    const response = await api.get('/pokemon/?offset=0&limit=2000');
-    console.log(response);
-  }
-
   return (
     <div className="CharacterList">
-      
       <div>
         <Header />
         <section className="characters">
-          <button onClick={debug}>DEBUG</button>
-            {characters.map(pokemon => (
-              <Pokemon key={Math.random()} pokemon={pokemon}/>
-            ))}
+          {characters.map(pokemon => (
+            <Pokemon key={Math.random()} pokemon={pokemon}/>
+          ))}
         </section>
       </div>
 
       <section className="types">
         <h2>TYPES</h2>
-        <button
-          onClick={getAllPokemons}
-        >
-          Show ALL
-        </button>
-
         {types.map( type => (
           <button
             onClick={() => filterPokemonsByType(type.url)}

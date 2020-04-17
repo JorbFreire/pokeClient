@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import silhouette from '../../../assets/pokemon.png';
 import './styles.css';
@@ -16,13 +17,14 @@ export default function pokemon(props){
 
   return (
     <div className="pokemon">
-      <a
-        href={dealWithDiferetJsonResponses(props.pokemon).url}
+      <Link
+        to='/character/details' 
+          //dealWithDiferetJsonResponses(props.pokemon).url}
         className="linkBox"
       >
         <img src={silhouette} alt="Pokemon Silhouette"/>
         <p>{dealWithDiferetJsonResponses(props.pokemon).name}</p>
-      </a>
+      </Link>
     </div>
   );
 }
