@@ -1,9 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+
+import { isAuthenticated } from './services/auth';
 
 import CharacterList from './pages/CharacterList';
 import CharacterDetails from './pages/CharacterDetails';
 import Login from './pages/Login';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+      )
+    }
+  />
+);
 
 export default function Routes() {
   return (
@@ -12,6 +27,7 @@ export default function Routes() {
         <Route exact path='/' component={CharacterList}/>
         <Route path='/character/details' component={CharacterDetails} />
         <Route path='/login' component={Login} />
+        <PrivateRoute path="/private" component={() => <h1>private route</h1>} />
       </Switch>
     </BrowserRouter>
   );
