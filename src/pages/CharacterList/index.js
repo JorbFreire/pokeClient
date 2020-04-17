@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+
 import Pokemon from './Pokemon';
+import Header from '../../components/Header';
 
 import './styles.css';
 
@@ -45,12 +47,16 @@ export default function CharacterList(){
 
   return (
     <div className="CharacterList">
-      <section className="characters">
-      <button onClick={debug}>DEBUG</button>
-        {characters.map(pokemon => (
-          <Pokemon pokemon={pokemon}/>
-        ))}
-      </section>
+      
+      <div>
+        <Header />
+        <section className="characters">
+          <button onClick={debug}>DEBUG</button>
+            {characters.map(pokemon => (
+              <Pokemon pokemon={pokemon}/>
+            ))}
+        </section>
+      </div>
 
       <section className="types">
         <h2>TYPES</h2>
