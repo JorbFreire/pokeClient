@@ -30,7 +30,12 @@
 }
 
 .pokemon .linkBox img {
-  width: 140px;
+  transition: 0.5s;
+  height: 70%;
+}
+.pokemon:hover img{
+  transition: 0.5s;
+  height: 80%;
 }
 
 .pokemon .linkBox p {
