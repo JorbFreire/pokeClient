@@ -24,7 +24,7 @@ export default function CharacterList(){
       setTypes(response.data.results);
       return 1;
     }
-    setCharacters([1, 1, 1, 1])
+    setCharacters([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,])
     listTypes();   
   }, []);
 
