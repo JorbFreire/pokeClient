@@ -1,0 +1,9 @@
+.CharacterList {
+  background: #5a5252;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+}

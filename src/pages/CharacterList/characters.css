@@ -1,0 +1,21 @@
+.CharacterList .characters {
+  width: 100%;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 14px;
+
+  overflow: auto;
+  justify-content: center;
+  padding: 20px;
+}
+
+.CharacterList section.characters .character {
+  width: 320px;
+  height: 220px;
+  
+  background: #c52941;
+  border-radius: 30px;
+
+  padding: 20px;
+}
